@@ -65,3 +65,72 @@
 ---
 
 Этот урок включает практическую работу с оконными функциями и визуализациями, что позволяет углубить понимание временных данных и их применения в анализе.
+
+# Lesson 6: Window Functions and Interactive Charts
+
+## Overview
+
+This lesson focuses on studying avocado price trends and analyzing deal delays using window functions and interactive visualizations. It covers techniques for applying moving averages, exponential averages, and working with time intervals in data.
+
+## Data Description
+
+The data includes information about avocado prices and sales volumes in the U.S., provided by the Hass Avocado Board, as well as deal delay data.
+
+### Avocado Data
+- **Date**: Observation date
+- **AveragePrice**: Average price of one avocado
+- **Total Volume**: Total number of avocados sold
+- **4046**: Number of avocados sold with PLU 4046
+- **4225**: Number of avocados sold with PLU 4225
+- **4770**: Number of avocados sold with PLU 4770
+- **Total Bags**: Total number of bags
+- **Small Bags**: Number of small bags
+- **Large Bags**: Number of large bags
+- **XLarge Bags**: Number of extra-large bags
+- **type**: Avocado type (conventional or organic)
+- **year**: Year of observation
+- **Region**: City or region
+
+### Deal Data
+- **client_id**: Client ID
+- **company_id**: Company ID
+- **delay**: Deal delay (in days)
+- **revenue**: Revenue from the deal
+
+## Tasks
+
+1. **Moving Average**  
+   Calculate the moving average of avocado prices (`AveragePrice`) with a window size of 3. Find the maximum value and round the result to two decimal places.
+
+2. **Effect of Window Size on Moving Average**  
+   Plot moving averages with window sizes of 2, 4, 10, and 50. Evaluate the impact of window size on the chart and compare it to the images provided.
+
+3. **Exploring Documentation**  
+   Review the parameters of the function in the documentation and relate them to the descriptions provided.
+
+4. **Exponential Moving Average**  
+   Apply the `ewm()` function with `span=2` to the avocado price data and save the result as `avocado_ewm`.
+
+5. **Analysis of Organic Avocados in Chicago**  
+   Import the data with `index_col=0`. For organic avocados (`type='organic'`) in Chicago (`region='Chicago'`), calculate the moving average with a window size of 4 and the exponential moving average with `span=4`. Plot the results and round the values to three decimal places.
+
+6. **Converting Deal Delay Data**  
+   Load the deal data and convert the `delay` column to `timedelta`, removing the `-` sign.
+
+7. **Categorizing Delay Times**  
+   Divide the delay column into 3 intervals and store the values in a new column, `delay_categorical`.
+
+8. **Reassigning Delay Categories**  
+   Using `pd.cut`, assign the following categories:
+   - `'less than 1 day'` for delays from 0 to 1 day
+   - `'1-2 days'` for delays from 1 to 2 days
+   - `'2-3 days'` for delays from 2 to 3 days
+   - `'more than 3 days'` for delays longer than 3 days
+
+9. **Interactive Chart of Delay Frequency**  
+   Create an interactive bar plot showing the frequency of deal delays, sorted from the least frequent category (at the bottom) to the most frequent (at the top).
+
+---
+
+This lesson combines practical work with window functions and visualizations, providing a deeper understanding of time-series data and its applications in analysis.
+
